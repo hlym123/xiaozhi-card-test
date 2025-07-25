@@ -16,9 +16,19 @@ public:
     virtual NetworkInterface* GetNetwork() override;
     virtual const char* GetNetworkStateIcon() override;
     virtual void SetPowerSaveMode(bool enabled) override;
+    virtual bool GetPowerSaveMode() override;
     virtual void ResetWifiConfiguration();
     virtual AudioCodec* GetAudioCodec() override { return nullptr; }
     virtual std::string GetDeviceStatusJson() override;
+
+    // Add for XiaoZhi-Card  
+    void Sleep() override;
+    void WakeUp() override;
+    void Shutdown() override;
+    void SetIndicator(uint8_t r, uint8_t g, uint8_t b) override;
+    void ClearDisplay(uint8_t color) override;
+    // void UpdateDisplay() override;
+    void SetRefreshCode(uint8_t code) override;
 };
 
 #endif // WIFI_BOARD_H
